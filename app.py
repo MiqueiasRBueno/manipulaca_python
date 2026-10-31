@@ -64,6 +64,6 @@ isento = st.checkbox("Isento de Inscrição Estadual")
 st.write("Estado selecionado: ", estado)
 st.write("Isento: ", isento)
 
-nome = st.text_input("Nome do Fornecedor")
+nome = st.text_input("Nome do Fornecedor").title()
 if st.button("Confirmar"):
     st.success(f"Fornecedor {nome} confirmado!")
