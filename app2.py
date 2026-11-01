@@ -2,22 +2,15 @@ import streamlit as st
 
 st.title("Cadastro de Fornecedores")
 with st.form("form_fornecedor"):
-<<<<<<< HEAD
     st.subheader("Informações Principais")
     razao_social = st.text_input("Razão Social:")
     nome_fantasia = st.text_input("Nome Fantasia:")
-=======
-    st.subheader("Informaçôes Princcipais")
-    razao_social = st.text_input("Razão Social")
-    nome_fantasia = st.text_input("Nome Fantasia")
->>>>>>> 1814be0 (salvar modificações app2.py)
 
     col1, col2 = st.columns(2)
 
     with col1:
         cnpj = st.text_input("CNPJ:")
     with col2:
-<<<<<<< HEAD
         inscricao_estadual = st.text_input("Inscrição Estadual:")
 
     col3, col4 = st.columns(2)
@@ -41,24 +34,6 @@ with st.form("form_fornecedor"):
                                    "RJ", "RN", "RO", "RR", "RS", "SC", "SE", "SP", "TO"])
     with col9:
         cep = st.text_input("CEP:")    
-=======
-        inscricao_estadual = st.text_input("Inscrição Estadual")
-
-    col3, col4 = st.columns(2)
-
-    with col3:
-        telefone = st.text_input("Telefone")
-    with col4:
-        email = st.text_input("Email")
-
-    col5, col6 = st.columns(2)
-
-    with col5:
-        rua = st.text_input("Rua")
-    with col6:
-        numero = st.text_input("Número")
-        
->>>>>>> 1814be0 (salvar modificações app2.py)
     isento = st.checkbox("Isento")
     salvar = st.form_submit_button("Salvar")
 
@@ -67,16 +42,11 @@ if salvar:
     st.write("Nome Fantasia: ", nome_fantasia)
     st.write("CNPJ: ", cnpj)
     st.write("Inscrição Estadual: ", inscricao_estadual)
-<<<<<<< HEAD
     st.write("Telefone: ")
     st.write("E-mail: ")
     st.write("Rua: ", rua)
-    st.write("Complemento: ")
-    st.write("Cidade: ")
-    st.write("Estado: ")
-    st.write("CEP:")
-=======
-    st.write("Telefone: ", telefone)
-    st.write("Email: ", email)
->>>>>>> 1814be0 (salvar modificações app2.py)
+    st.write("Complemento: ", complemento)
+    st.write("Cidade: ", cidade)
+    st.write("Estado: ", estado)
+    st.write("CEP:", cep)
     st.write("Isento: ", isento)
