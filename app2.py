@@ -6,6 +6,12 @@ import pandas as pd
 
 arquivo_csv = Path("fornecedores.csv")
 
+COLUNAS = [
+    "razao_social", "nome_fantasia", "cnpj", "inscricao_estadual", 
+    "telefone", "email", "logradouro", "endereco", "complemento", 
+    "cidade", "estado", "cep", "isento"
+]
+
 def salvar_fornecedor(dados):
     criar_cabecalho = (
         not arquivo_csv.exists()
@@ -72,7 +78,7 @@ if salvar:
             "razao_social": razao_social.strip(),
             "nome_fantasia": nome_fantasia.strip(),
             "cnpj": cnpj_limpo,
-            "Inscrição Estaduoal": inscricao_estadual,
+            "Inscrição Estadual": inscricao_estadual,
             "Telefone": telefone,
             "E-mail": email,
             "Logradouro": logradouro,
