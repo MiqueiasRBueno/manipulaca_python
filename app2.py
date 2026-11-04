@@ -14,7 +14,7 @@ def salvar_fornecedor(dados):
     with arquivo_csv.open(
         mode="a", newline="", encoding="utf-8"
     ) as arquivo:
-        escritor = csv.DictWriter(arquivo, fieldnames=dados.keys())
+        escritor = csv.DictWriter(arquivo, fieldnames=dados.keys(), quoting=csv.QUOTE_NONNUMERIC)
         if criar_cabecalho:
             escritor.writeheader()
         escritor.writerow(dados)
@@ -67,12 +67,20 @@ if salvar:
         st.error("Informe o Cnpj.")
     elif len(cnpj_limpo) != 14:
         st.error("O CNPJ deve conter 14 números.")
+    elif not inscricao_estadual.strip():
+        st.error("Informe a inscrição estadual.")
+    elif not telefone.strip():
+        st.error("Informe o telefone para contado.")
+    elif not email.strip():
+        st.error("Informe o e-mail principal.")
+    elif not endereco.strip():
+        st.error("Informe o endereço.")
     else:        
         fornecedor = {
             "razao_social": razao_social.strip(),
             "nome_fantasia": nome_fantasia.strip(),
             "cnpj": cnpj_limpo,
-            "Inscrição Estaduoal": inscricao_estadual,
+            "Inscrição Estadual": inscricao_estadual,
             "Telefone": telefone,
             "E-mail": email,
             "Logradouro": logradouro,
@@ -81,12 +89,12 @@ if salvar:
             "Cidade": cidade,
             "Estado": estado,
             "Cep": cep,
-            "isento": isento
+            "isento": str(isento)
         }
         salvar_fornecedor(fornecedor)
         st.success("Dados validados com sucesso!")
 
-st.subheader("Fornecedores Casastrados")
+st.subheader("Fornecedores Cadastrados")
 if arquivo_csv.exists() and arquivo_csv.stat().st_size > 0:
     df = pd.read_csv(
         arquivo_csv, dtype=str, keep_default_na=False
