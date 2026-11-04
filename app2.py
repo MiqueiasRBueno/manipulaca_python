@@ -72,3 +72,4 @@ if salvar:
         }
         salvar_fornecedor(fornecedor)
         st.success("Dados validados com sucesso!")
+ 
