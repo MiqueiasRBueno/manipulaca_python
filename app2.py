@@ -86,7 +86,7 @@ if salvar:
         salvar_fornecedor(fornecedor)
         st.success("Dados validados com sucesso!")
 
-st.subheader("Fornecedores Casastrados")
+st.subheader("Fornecedores Cadastrados")
 if arquivo_csv.exists() and arquivo_csv.stat().st_size > 0:
     df = pd.read_csv(
         arquivo_csv, dtype=str, keep_default_na=False
